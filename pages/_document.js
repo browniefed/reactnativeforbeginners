@@ -1,6 +1,7 @@
 import Document, { Head, Main, NextScript } from "next/document";
 import glamorous from "glamorous";
 import { renderStatic } from "glamor/server";
+import config from "../site";
 
 const Body = glamorous.body({
   display: "flex",
@@ -29,6 +30,22 @@ export default class MyDocument extends Document {
       <html>
         <Head>
           <title>Code Daily - Learn React Native</title>
+
+          <meta name="twitter:card" content={config.image} />
+          <meta name="twitter:site" content="@codedailyio" />
+          <meta name="twitter:title" content={config.title} />
+          <meta name="twitter:description" content={config.description} />
+          <meta name="twitter:creator" content="@codedailyio" />
+          <meta property="og:title" content={config.title} />
+          <meta property="og:type" content="article" />
+          <meta property="og:url" content="https://learnreactnative.codedaily.io/" />
+          <meta property="og:image" content={config.image} />
+          <meta property="og:description" content={config.description} />
+          <meta property="og:site_name" content="Code Daily" />
+          <meta property="article:published_time" content={config.published_date} />
+          <meta property="article:section" content={config.section} />
+          <meta property="article:tag" content={config.tags} />
+
           <link rel="apple-touch-icon" sizes="57x57" href="/static/apple-icon-57x57.png" />
           <link rel="apple-touch-icon" sizes="60x60" href="/static/apple-icon-60x60.png" />
           <link rel="apple-touch-icon" sizes="72x72" href="/static/apple-icon-72x72.png" />

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Head from "next/head";
 import ExecutionEnvironment from "exenv";
 import ReactGA from "react-ga";
 import { rehydrate, css } from "glamor";
@@ -25,9 +24,6 @@ class Page extends Component {
   render() {
     return (
       <Column flex="1">
-        <Head>
-          <title>Code Daily - {this.props.title}</title>
-        </Head>
         {this.props.children}
       </Column>
     );
