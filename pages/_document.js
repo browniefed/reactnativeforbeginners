@@ -68,6 +68,7 @@ export default class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#ffffff" />
           <meta name="msapplication-TileImage" content="/static/ms-icon-144x144.png" />
           <meta name="theme-color" content="#ffffff" />
+          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
