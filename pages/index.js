@@ -1,15 +1,10 @@
 import React from 'react'
-import { rehydrate, css } from 'glamor'
-import glamorous from 'glamorous'
-
-if (typeof window !== 'undefined') {
-  rehydrate(window.__NEXT_DATA__.ids)
-}
+import Page from "../page";
 
 export default () => {
   return (
-    <div>
+    <Page title="Learn React Native">
       
-    </div>
+    </Page>
   )
 }

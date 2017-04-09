@@ -1,0 +1,37 @@
+import React, { Component } from "react";
+import Head from "next/head";
+import ExecutionEnvironment from "exenv";
+import ReactGA from "react-ga";
+import { rehydrate, css } from "glamor";
+import glamorous from "glamorous";
+import { Column } from "glamorous-jsxstyle";
+
+if (typeof window !== "undefined") {
+  rehydrate(window.__NEXT_DATA__.ids);
+}
+
+if (ExecutionEnvironment.canUseDOM) {
+  ReactGA.initialize("UA-92022203-1", {
+    debug: process.env.NODE_ENV !== "production",
+  });
+}
+
+class Page extends Component {
+  componentDidMount() {
+    ReactGA.set({ page: window.location.pathname });
+    ReactGA.pageview(window.location.pathname);
+  }
+
+  render() {
+    return (
+      <Column flex="1">
+        <Head>
+          <title>Code Daily - {this.props.title}</title>
+        </Head>
+        {this.props.children}
+      </Column>
+    );
+  }
+}
+
+export default Page;

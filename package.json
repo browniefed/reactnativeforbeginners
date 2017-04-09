@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "next",
+    "dev": "next -p 3010",
     "build": "next build",
     "start": "next start"
   },
@@ -13,10 +13,13 @@
   "author": "browniefed",
   "license": "ISC",
   "dependencies": {
+    "exenv": "^1.2.1",
     "glamor": "^2.20.24",
-    "glamorous": "^1.0.1",
-    "next": "^2.0.1",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "glamorous": "^2.0.1",
+    "glamorous-jsxstyle": "^1.2.2",
+    "next": "^2.1.0",
+    "react": "^15.5.3",
+    "react-dom": "^15.5.3",
+    "react-ga": "^2.1.2"
   }
 }
