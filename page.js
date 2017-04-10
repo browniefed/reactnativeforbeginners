@@ -10,7 +10,7 @@ if (typeof window !== "undefined") {
 }
 
 if (ExecutionEnvironment.canUseDOM) {
-  ReactGA.initialize("UA-92022203-1", {
+  ReactGA.initialize(process.env.GA_KEY, {
     debug: process.env.NODE_ENV !== "production",
   });
 }
