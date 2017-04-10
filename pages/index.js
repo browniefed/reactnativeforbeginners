@@ -5,22 +5,15 @@ import { getParsedToken } from "../token";
 import { charge } from "../api";
 
 // IF USER ReactGA.set({ userId: 123 })
-// ReactGA.modalview on purchase click
-// ReactGA.event on purchase ? purchase click too
-/*
-ReactGA.event({
-  category: 'Editing',
-  action: 'Deleted Component',
-  label: 'Game Widget'
-});
-*/
 class Index extends Component {
   static getInitialProps({ req }) {
-    return { user: getParsedToken(req) };
+    return { user: getParsedToken(req) || {} };
   }
   componentDidMount() {
-    // this.props.user;
-
+    if (this.props.user.id) {
+      ReactGA.set({ userId: this.props.user.id })
+    }
+    
     this.stripe = StripeCheckout.configure({
       key: process.env.STRIPE_PUBLIC_KEY,
       image: "https://stripe.com/img/documentation/checkout/marketplace.png",
