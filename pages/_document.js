@@ -77,6 +77,7 @@ export default class MyDocument extends Document {
         </Head>
         <Body>
           <Main />
+          <script src="https://checkout.stripe.com/checkout.js"></script>
           <NextScript />
         </Body>
       </html>
