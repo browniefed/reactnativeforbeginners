@@ -2,18 +2,23 @@ import React, { Component } from "react";
 import Page from "../page";
 import ReactGA from "react-ga";
 import { getParsedToken } from "../token";
-import { charge } from "../api";
+import { charge, loadCourse } from "../api";
 
-// IF USER ReactGA.set({ userId: 123 })
+// IF USER ReactGA.set({ userId: 123, email: '' })
 class Index extends Component {
-  static getInitialProps({ req }) {
-    return { user: getParsedToken(req) || {} };
+  static async getInitialProps({ req }) {
+    const course = await loadCourse(process.env.COURSE_TOKEN);
+
+    return {
+      user: getParsedToken(req) || {},
+      course,
+    };
   }
   componentDidMount() {
     if (this.props.user.id) {
-      ReactGA.set({ userId: this.props.user.id })
+      ReactGA.set({ userId: this.props.user.id, email: this.props.user.email });
     }
-    
+
     this.stripe = StripeCheckout.configure({
       key: process.env.STRIPE_PUBLIC_KEY,
       image: "https://stripe.com/img/documentation/checkout/marketplace.png",
@@ -22,6 +27,7 @@ class Index extends Component {
       token: async (token, tokenInfo) => {
         try {
           const charged = await charge(token, process.env.COURSE_TOKEN);
+          ReactGA.set({ email: token.email })
           ReactGA.event({
             category: "BUY_NOW",
             action: "BUY_SUCCESS",
@@ -53,7 +59,37 @@ class Index extends Component {
   render() {
     return (
       <Page>
-        <button onClick={this.handleBuyNow}>Buy Now</button>
+        <div>
+          <h1>Learn React Native</h1>
+        </div>
+        <div>
+          The course
+          800 hours of videos
+          37 tutorials lessons
+          2 apps
+          <div>
+            List sections w/ videos in each
+
+          </div>
+        </div>
+
+        <div>
+          <div>
+            Package 1 - basic
+          </div>
+          <div>
+            Package 2 - team
+          </div>
+        </div>
+        <div>
+          <h2>What is react native</h2>
+          <div>
+            List of companies who use it
+          </div>
+          <div>
+            FAQ
+          </div>
+        </div>
       </Page>
     );
   }

@@ -8,7 +8,10 @@
     "start": "next start"
   },
   "now": {
-    "alias": "learnreactnative.codedaily.io"
+    "alias": [
+      "reactnativeforbeginners.com",
+      "learnreactnative.codedaily.io"
+    ]
   },
   "author": "browniefed",
   "license": "ISC",

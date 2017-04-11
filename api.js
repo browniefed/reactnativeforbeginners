@@ -24,3 +24,8 @@ export const charge = ({ id: token, email }, courseToken) => {
     .then(checkStatus)
     .then(res => res.json());
 };
+
+
+export const loadCourse = (token) => {
+  return fetch(`${SERVER}/courses/token/${token}`).then(checkStatus).then(res => res.json());
+}
