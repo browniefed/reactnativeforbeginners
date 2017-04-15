@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "next -p 3010",
+    "dev": "COURSE_TOKEN=learnreactnative next -p 3010",
     "build": "next build",
     "start": "next start"
   },

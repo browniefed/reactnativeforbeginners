@@ -4,7 +4,9 @@ import ReactGA from "react-ga";
 import { getParsedToken } from "../token";
 import { charge, loadCourse } from "../api";
 
-// IF USER ReactGA.set({ userId: 123, email: '' })
+
+const priceToNum = (price) => parseFloat(price, 10) * 100
+
 class Index extends Component {
   static async getInitialProps({ req }) {
     const course = await loadCourse(process.env.COURSE_TOKEN);
@@ -27,7 +29,7 @@ class Index extends Component {
       token: async (token, tokenInfo) => {
         try {
           const charged = await charge(token, process.env.COURSE_TOKEN);
-          ReactGA.set({ email: token.email })
+          ReactGA.set({ email: token.email, category: "React Native" })
           ReactGA.event({
             category: "BUY_NOW",
             action: "BUY_SUCCESS",
@@ -43,20 +45,28 @@ class Index extends Component {
       },
     });
   }
-  handleBuyNow = () => {
+  handleBuyNow = (isTeam) => {
     ReactGA.event({
       category: "BUY_NOW",
       action: "CLICKED_BUY_BUTTON",
       label: "Clicked Buy Button",
     });
 
+    const price = isTeam ? this.props.course.team_price : this.props.course.price;
+    let title = this.props.course.title;
+
+    if (isTeam) {
+      title = `${title} (Team Package)`
+    }
+
     this.stripe.open({
       name: "Code Daily",
-      description: "Learn React Native",
-      amount: 7200,
+      description: title,
+      amount: priceToNum(price),
     });
   };
   render() {
+
     return (
       <Page>
         <div>
@@ -74,10 +84,10 @@ class Index extends Component {
         </div>
 
         <div>
-          <div>
+          <div onClick={() => this.handleBuyNow(false)}>
             Package 1 - basic
           </div>
-          <div>
+          <div onClick={() => this.handleBuyNow(true)}>
             Package 2 - team
           </div>
         </div>
