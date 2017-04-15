@@ -1,7 +1,7 @@
 const webpack = require("webpack");
 require("dotenv").config();
 
-const GA_KEY = "UA-92022203-1";
+const GA_KEY = process.env.NODE_ENV === "production" ? "UA-92022203-1" : "NONE";
 
 module.exports = {
   webpack: (config, { dev }) => {
