@@ -1,4 +1,5 @@
 const config = {
+  pageTitle: "React Native For Beginners - The best resource to learn React Native",
   title: `Learn React Native`,
   description: `
     We'll start with a focus on the basics and how React Native compares to the web.

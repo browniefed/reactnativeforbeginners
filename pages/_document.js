@@ -29,8 +29,7 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <title>Code Daily - Learn React Native</title>
-
+          <title>{config.pageTitle}</title>
           <meta name="twitter:card" content={config.image} />
           <meta name="twitter:site" content="@codedailyio" />
           <meta name="twitter:title" content={config.title} />
