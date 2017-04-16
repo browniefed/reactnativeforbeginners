@@ -4,12 +4,11 @@ import ReactGA from "react-ga";
 import { getParsedToken } from "../token";
 import { charge, loadCourse } from "../api";
 
-import Header, { TextLine, SubText, SmallTextHeader } from "../components/header";
 import { RNVersion, SmallText, Text, Android, Apple, ReactNative } from "../components/misc";
-import { Packages, CourseSection, SpacedRounded } from "../components/sections";
+import { Packages, CourseSection, SpacedRounded, MeOffset } from "../components/sections";
 import { Courses, CourseHeader } from "../components/course";
 import { Follow } from "react-twitter-widgets";
-import { InlineBlock, Flex } from "glamorous-jsxstyle";
+import { InlineBlock, Flex, Column } from "glamorous-jsxstyle";
 import {
   Item,
   BuyTitle,
@@ -20,6 +19,7 @@ import {
 } from "../components/purchase";
 
 import TopHeader from "../sections/header";
+import MeSection from "../sections/me";
 
 const priceToNum = price => parseFloat(price, 10) * 100;
 
@@ -94,27 +94,9 @@ class Index extends Component {
     return (
       <Page>
         <TopHeader />
-
-        <SpacedRounded>
-          <Flex>
-            <img src="/static/me.jpg" />
-            <div>
-              <h2>Jason Brown</h2>
-              <Text>
-                I'm a self taught Front End Developer in the Portland, Oregon. I've worked for many startups converting and integrating React into their applications. I organize the very successful Portland React.JS Meetup. I've hosted workshops for organizations like Chicktech and Women Who Code, given talks at code schools, as well as helped code schools develop their curriculum.
-              </Text>
-              <Text>
-                Since React Native has been published I've invested countless hours into building complex screens, animations, and applications with it. I've independently freelanced to help many companies build their React Native applications. I'm the author of a very popular React Native Animation Fundamentals book, as well as publishing many courses and lessons on Egghead.
-              </Text>
-            </div>
-          </Flex>
-          <InlineBlock>
-            <Follow username="browniefed" />
-          </InlineBlock>
-          <InlineBlock>
-            <Follow username="codedailyio" />
-          </InlineBlock>
-        </SpacedRounded>
+        <MeOffset>
+          <MeSection />
+        </MeOffset>
 
         <SpacedRounded>
           <div>

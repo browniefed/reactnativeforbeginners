@@ -19,8 +19,23 @@ export const SpacedRounded = glamorous(WhiteRounded)({
   margin: "30px auto",
   maxWidth: "1280px",
   width: "100%",
+  "@media (max-width: 768px)": {
+    width: "auto",
+    margin: "30px 5px"
+  },
 });
 
 export const CourseSection = glamorous.div({
   margin: "30px 0",
+});
+
+export const MeOffset = glamorous.div({
+  marginTop: "-120px",
+});
+
+export const FlexReverse = glamorous(Flex)({
+  flex: "1 1 auto",
+  "@media (max-width: 768px)": {
+    flexDirection: "column",
+  },
 });
