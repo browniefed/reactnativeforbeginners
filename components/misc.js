@@ -13,5 +13,20 @@ export const RNVersion = glamorous.div({
 });
 
 export const SmallText = glamorous.div({
-  fontSize: "12px"
+  fontSize: "12px",
+});
+
+export const Text = glamorous.p({
+  color: "#333",
+  fontSize: "1.1rem",
+  lineHeight: "1.3rem",
 })
+
+const PlatformImage = glamorous.img({
+  width: "75px",
+  height: "75px",
+});
+
+export const Android = () => <PlatformImage src="/static/android.svg" />;
+export const Apple = () => <PlatformImage src="/static/apple.svg" />;
+export const ReactNative = () => <PlatformImage src="/static/react_dark.svg" />;

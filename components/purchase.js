@@ -3,19 +3,18 @@ import glamorous from "glamorous";
 
 export const BuyContainer = glamorous.div({
   maxWidth: "400px",
-  width: "100%",
   backgroundColor: "#FFF",
   boxShadow: "0px 0px 1px rgba(0,0,0,.1)",
   margin: "15px auto",
   padding: "0 15px",
-  minHeight: "550px",
+  minHeight: "350px",
 });
 
 export const BuyTitle = glamorous.h2({
   textAlign: "center",
   margin: "15px",
   paddingBottom: "15px",
-  borderBottom: "1px solid #DDD"
+  borderBottom: "1px solid #05A5D1"
 });
 
 export const BuyFooter = glamorous.div({});

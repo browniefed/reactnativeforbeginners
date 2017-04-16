@@ -5,8 +5,11 @@ import { getParsedToken } from "../token";
 import { charge, loadCourse } from "../api";
 
 import Header, { TextLine, SubText, SmallTextHeader } from "../components/header";
-import { RNVersion, SmallText } from "../components/misc";
-import { Packages } from "../components/sections";
+import { RNVersion, SmallText, Text, Android, Apple, ReactNative } from "../components/misc";
+import { Packages, CourseSection, WhiteRounded } from "../components/sections";
+import { Courses, CourseHeader } from "../components/course";
+import { Follow } from "react-twitter-widgets";
+import { InlineBlock, Flex } from "glamorous-jsxstyle";
 import {
   Item,
   BuyTitle,
@@ -98,10 +101,32 @@ class Index extends Component {
           <TextLine>
             Beginners
           </TextLine>
-          <SubText>Gain the knowledge to build the app you've always dreamed of.</SubText>
+          <SubText>Get the knowledge to build the app you've always dreamed of.</SubText>
+          <ReactNative /> <Android /> <Apple />
         </Header>
-        <div>
-          <RNVersion>Built With React Native V.43</RNVersion>
+
+        <WhiteRounded>
+          <Flex>
+            <img src="/static/me.jpg" />
+            <div>
+              <h2>Jason Brown</h2>
+              <Text>
+                I'm a self taught Front End Developer in the Portland, Oregon. I've worked for many startups converting and integrating React into their applications. I organize the very successful Portland React.JS Meetup. I've hosted workshops for organizations like Chicktech and Women Who Code, given talks at code schools, as well as helped code schools develop their curriculum.
+              </Text>
+              <Text>
+                Since React Native has been published I've invested countless hours into building complex screens, animations, and applications with it. I've independently freelanced to help many companies build their React Native applications. I'm the author of a very popular React Native Animation Fundamentals book, as well as publishing many courses and lessons on Egghead.
+              </Text>
+            </div>
+          </Flex>
+          <InlineBlock>
+            <Follow username="browniefed" />
+          </InlineBlock>
+          <InlineBlock>
+            <Follow username="codedailyio" />
+          </InlineBlock>
+        </WhiteRounded>
+
+        <WhiteRounded>
           <div>
             Look at this gif here. It's so great
           </div>
@@ -119,10 +144,11 @@ class Index extends Component {
               If you already ready to start building "get the course now".
             </p>
           </div>
-        </div>
+        </WhiteRounded>
 
         <div>
-          <div>
+
+          <WhiteRounded>
             <h4>What You'll Be An Expert In</h4>
             <ul>
               <li>How to build a complete App in React Native</li>
@@ -133,8 +159,8 @@ class Index extends Component {
               <li>Basic and advanced animations to improve UX</li>
               <li>...the list goes on. Check the full video list below</li>
             </ul>
-          </div>
-          <div>
+          </WhiteRounded>
+          <WhiteRounded>
             <h4>Who Should Get This Course</h4>
             <p>
               Anyone looking to expand on their React skills and take them mobile. If you don't know React already then don't worry, we'll cover all the basics.
@@ -147,13 +173,17 @@ class Index extends Component {
 
             <h3>Still unsure?</h3>
             <h3>We provide a 100% money back guarantee!</h3>
-          </div>
+          </WhiteRounded>
+
         </div>
-        <div>
-          <h3>The Course</h3>
-          <div>Each video can be watched independently</div>
-          <div>Over 7 hours of videos, 37 articles, and 2 apps</div>
-          <div>
+
+        <CourseSection>
+          <CourseHeader>
+            <h1>The Course</h1>
+            <div>Each video can be watched independently</div>
+            <div>Over 7 hours of videos, 37 articles, and 2 apps</div>
+          </CourseHeader>
+          <Courses>
             {videos.map(vid => {
               return (
                 <div>
@@ -166,43 +196,50 @@ class Index extends Component {
                 </div>
               );
             })}
-          </div>
-        </div>
+          </Courses>
+        </CourseSection>
 
         <Packages>
           <BuyContainer>
-            <BuyTitle>Master Package</BuyTitle>
-            <BuyContent>
-              <ul>
-                <Item>Access all 40 HD Videos, and 37 articles</Item>
-                <Item>All Source Code - All application code and example code for each video</Item>
-                <Item>Download/Stream videos from any device</Item>
-                <Item>Unlimited Updates</Item>
-                <Item>Future updates when React Native upgrades</Item>
-              </ul>
-            </BuyContent>
-            <BuyFooter>
-              <BuyButton onClick={() => this.handleBuyNow(false)}>
-                Buy Now - ${this.props.course.price}
-              </BuyButton>
-            </BuyFooter>
+            <InlineBlock>
+              <BuyTitle>Master Package</BuyTitle>
+              <BuyContent>
+                <ul>
+                  <Item>Access all 40 HD Videos, and 37 articles</Item>
+                  <Item>
+                    All Source Code - All application code and example code for each video
+                  </Item>
+                  <Item>Download/Stream videos from any device</Item>
+                  <Item>Unlimited Updates</Item>
+                  <Item>Future updates when React Native upgrades</Item>
+                </ul>
+              </BuyContent>
+              <BuyFooter>
+                <BuyButton onClick={() => this.handleBuyNow(false)}>
+                  Buy Now - ${this.props.course.price}
+                </BuyButton>
+              </BuyFooter>
 
-            <SmallText>There is only one course. And it includes everything!</SmallText>
+              <SmallText>There is only one course. And it includes everything!</SmallText>
+            </InlineBlock>
           </BuyContainer>
           <BuyContainer>
-            <BuyTitle>Team Package</BuyTitle>
-            <BuyContent>
-              <p>
-                The team package gets you access to 10 licenses. Also get an invoice emailed to you.
-              </p>
-            </BuyContent>
-            <BuyFooter>
-              <BuyButton onClick={() => this.handleBuyNow(true)}>
-                Buy Now - ${this.props.course.team_price}
-              </BuyButton>
-            </BuyFooter>
+            <InlineBlock>
+              <BuyTitle>Team Package</BuyTitle>
+              <BuyContent>
+                <p>
+                  The team package gets you access to 10 licenses. Also get an invoice emailed to you.
+                </p>
+              </BuyContent>
+              <BuyFooter>
+                <BuyButton onClick={() => this.handleBuyNow(true)}>
+                  Buy Now - ${this.props.course.team_price}
+                </BuyButton>
+              </BuyFooter>
+            </InlineBlock>
           </BuyContainer>
         </Packages>
+
         <div>
           <h2>What is react native</h2>
           <div>
