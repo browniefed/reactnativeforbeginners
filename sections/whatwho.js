@@ -9,7 +9,7 @@ const Spacer = glamorous(WhiteRounded)({
   display: "flex",
   flex: "1 0 auto",
   flexDirection: "column",
-  justifyContent: "space-between",
+  justifyContent: "flex-start",
   padding: "8px",
   "@media (max-width: 768px)": {
     width: "auto",
@@ -50,12 +50,18 @@ const Content = glamorous.div({
 const Item = glamorous.li({
   color: "#333",
   fontSize: "1.2rem",
+  lineHeight: "1.6rem"
 });
 
 const Text = glamorous.p({
   color: "#333",
   fontSize: "1.2rem",
+  lineHeight: "1.6rem"
 });
+
+const TopText = glamorous(Text)({
+  marginTop: 0,
+})
 
 const Footer = glamorous.div({
   textAlign: "center",
@@ -71,9 +77,9 @@ const WhatWhoSection = () => {
           <Spacer>
             <Title>What You'll Be An Expert In</Title>
             <Content>
-              <Text>
+              <TopText>
                 This course is meant to help you understand how to get started with the basics React Native all the way through building a complex application with animations.
-              </Text>
+              </TopText>
               <Text>
                 By the end you'll have everything you need to start building your own application.
               </Text>
@@ -92,9 +98,9 @@ const WhatWhoSection = () => {
           <Spacer>
             <Title>Who Should Get This Course</Title>
             <Content>
-              <Text>
+              <TopText>
                 Anyone looking to expand on their React skills and take them mobile. If you don't know React already then don't worry, we'll cover all the basics.
-              </Text>
+              </TopText>
               <ul>
                 <Item>React developers currently using Cordova</Item>
                 <Item>Developers or companies looking to launch apps across both platforms</Item>
