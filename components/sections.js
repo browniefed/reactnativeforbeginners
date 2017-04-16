@@ -6,13 +6,14 @@ import { Flex } from "glamorous-jsxstyle";
 export const Packages = glamorous.div({
   backgroundColor: "#F5F5F5",
   padding: "30px 0",
+  boxShadow: "inset 0 -15px 0 -10px rgba(38,38,38,0.1), inset 0 15px 0 -10px rgba(38,38,38,0.1)",
 });
 
 export const WhiteRounded = glamorous.div({
   padding: "20px",
-  backgroundColor: "#FFF",
-  borderRadius: "4px",
-  border: "3px solid rgba(0,0,0,.2)",
+  backgroundColor: "rgba(255,255,255,.95)",
+  borderRadius: "2px",
+  border: "5px solid rgba(0,0,0,.1)",
 });
 
 export const SpacedRounded = glamorous(WhiteRounded)({
@@ -21,20 +22,19 @@ export const SpacedRounded = glamorous(WhiteRounded)({
   width: "100%",
   "@media (max-width: 768px)": {
     width: "auto",
-    margin: "30px 5px"
+    margin: "30px 5px",
   },
 });
 
-export const CourseSection = glamorous.div({
-  margin: "30px 0",
-});
-
-export const MeOffset = glamorous.div({
-  marginTop: "-120px",
+export const RelativeWrap = glamorous.div({
+  position: "relative",
+  backgroundImage: "url(/static/bg.jpg)",
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
 });
 
 export const FlexReverse = glamorous(Flex)({
-  flex: "1 1 auto",
+  flex: "1 0 auto",
   "@media (max-width: 768px)": {
     flexDirection: "column",
   },

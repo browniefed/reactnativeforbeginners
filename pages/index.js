@@ -5,8 +5,13 @@ import { getParsedToken } from "../token";
 import { charge, loadCourse } from "../api";
 
 import { RNVersion, SmallText, Text, Android, Apple, ReactNative } from "../components/misc";
-import { Packages, CourseSection, SpacedRounded, MeOffset } from "../components/sections";
-import { Courses, CourseHeader } from "../components/course";
+import {
+  Packages,
+  CourseSection,
+  SpacedRounded,
+  RelativeWrap,
+  MtnBg,
+} from "../components/sections";
 import { Follow } from "react-twitter-widgets";
 import { InlineBlock, Flex, Column } from "glamorous-jsxstyle";
 import {
@@ -19,18 +24,12 @@ import {
 } from "../components/purchase";
 
 import TopHeader from "../sections/header";
+import Overview from "../sections/overview";
 import MeSection from "../sections/me";
+import Course from "../sections/course";
+import WhatWho from "../sections/whatwho";
 
 const priceToNum = price => parseFloat(price, 10) * 100;
-
-const video = {
-  title: "Use Animated.timing to transition UI elements",
-  duration: 33,
-  category: "Animation",
-  image: "https://i.vimeocdn.com/video/619001114_640x360.jpg?r=pad",
-};
-
-const videos = [video, video, video, video, video, video, video, video, video, video];
 
 class Index extends Component {
   static async getInitialProps({ req }) {
@@ -94,82 +93,12 @@ class Index extends Component {
     return (
       <Page>
         <TopHeader />
-        <MeOffset>
+        <RelativeWrap>
           <MeSection />
-        </MeOffset>
-
-        <SpacedRounded>
-          <div>
-            Look at this gif here. It's so great
-          </div>
-          <div>
-            <h5>It's time to learn React Native</h5>
-            <p>
-              React Native has gained immense popularity with it's ability to share code across iOS and Android, develop performant apps quickly, and even update without going through the app store review process.
-            </p>
-            <p>
-              We'll walk through getting setup, cover some basics, then dive into building a Weather app.
-              We'll learn about native components and then expand and build on top of our Weather app.
-              Finally we'll step our game up and build out an ecommerce app. You'll finally understand how to take control of huge lists, navigation, forms, and truly grasp React Native development.
-            </p>
-            <p>
-              If you already ready to start building "get the course now".
-            </p>
-          </div>
-        </SpacedRounded>
-
-        <div>
-
-          <SpacedRounded>
-            <h4>What You'll Be An Expert In</h4>
-            <ul>
-              <li>How to build a complete App in React Native</li>
-              <li>Understand how to use native components</li>
-              <li>Building application navigation flow with react-navigation</li>
-              <li>Working with AsyncStorage to persist data across application loads</li>
-              <li>Learn latest ES6 and beyond features</li>
-              <li>Basic and advanced animations to improve UX</li>
-              <li>...the list goes on. Check the full video list below</li>
-            </ul>
-          </SpacedRounded>
-          <SpacedRounded>
-            <h4>Who Should Get This Course</h4>
-            <p>
-              Anyone looking to expand on their React skills and take them mobile. If you don't know React already then don't worry, we'll cover all the basics.
-            </p>
-            <ul>
-              <li>React developers currently using Cordova</li>
-              <li>Developers or companies looking to launch apps across both platforms</li>
-              <li>Anyone looking to grow their JavaScript skills</li>
-            </ul>
-
-            <h3>Still unsure?</h3>
-            <h3>We provide a 100% money back guarantee!</h3>
-          </SpacedRounded>
-
-        </div>
-
-        <CourseSection>
-          <CourseHeader>
-            <h1>The Course</h1>
-            <div>Each video can be watched independently</div>
-            <div>Over 7 hours of videos, 37 articles, and 2 apps</div>
-          </CourseHeader>
-          <Courses>
-            {videos.map(vid => {
-              return (
-                <div>
-                  <img src={vid.image} width="250px" />
-                  <div>
-                    <h5>{vid.title}</h5>
-                    <div>{vid.category}</div>
-                    <div>{vid.duration}</div>
-                  </div>
-                </div>
-              );
-            })}
-          </Courses>
-        </CourseSection>
+          <Overview />
+        </RelativeWrap>
+        <WhatWho />
+        <Course />
 
         <Packages>
           <BuyContainer>
@@ -192,7 +121,9 @@ class Index extends Component {
                 </BuyButton>
               </BuyFooter>
 
-              <SmallText>There is only one course. And it includes everything!</SmallText>
+              <SmallText>
+                There is only one course. And it includes everything! We don't make up fake promotions.
+              </SmallText>
             </InlineBlock>
           </BuyContainer>
           <BuyContainer>
