@@ -5,29 +5,16 @@ import { getParsedToken } from "../token";
 import { charge, loadCourse } from "../api";
 
 import { RNVersion, SmallText, Text, Android, Apple, ReactNative } from "../components/misc";
-import {
-  Packages,
-  CourseSection,
-  SpacedRounded,
-  RelativeWrap,
-  MtnBg,
-} from "../components/sections";
+import { CourseSection, SpacedRounded, RelativeWrap, MtnBg } from "../components/sections";
 import { Follow } from "react-twitter-widgets";
 import { InlineBlock, Flex, Column } from "glamorous-jsxstyle";
-import {
-  Item,
-  BuyTitle,
-  BuyContainer,
-  BuyFooter,
-  BuyButton,
-  BuyContent,
-} from "../components/purchase";
 
 import TopHeader from "../sections/header";
 import Overview from "../sections/overview";
 import MeSection from "../sections/me";
 import Course from "../sections/course";
 import WhatWho from "../sections/whatwho";
+import Packages from "../sections/packages";
 
 const priceToNum = price => parseFloat(price, 10) * 100;
 
@@ -100,48 +87,7 @@ class Index extends Component {
         <WhatWho />
         <Course />
 
-        <Packages>
-          <BuyContainer>
-            <InlineBlock>
-              <BuyTitle>Master Package</BuyTitle>
-              <BuyContent>
-                <ul>
-                  <Item>Access all 40 HD Videos, and 37 articles</Item>
-                  <Item>
-                    All Source Code - All application code and example code for each video
-                  </Item>
-                  <Item>Download/Stream videos from any device</Item>
-                  <Item>Unlimited Updates</Item>
-                  <Item>Future updates when React Native upgrades</Item>
-                </ul>
-              </BuyContent>
-              <BuyFooter>
-                <BuyButton onClick={() => this.handleBuyNow(false)}>
-                  Buy Now - ${this.props.course.price}
-                </BuyButton>
-              </BuyFooter>
-
-              <SmallText>
-                There is only one course. And it includes everything! We don't make up fake promotions.
-              </SmallText>
-            </InlineBlock>
-          </BuyContainer>
-          <BuyContainer>
-            <InlineBlock>
-              <BuyTitle>Team Package</BuyTitle>
-              <BuyContent>
-                <p>
-                  The team package gets you access to 10 licenses. Also get an invoice emailed to you.
-                </p>
-              </BuyContent>
-              <BuyFooter>
-                <BuyButton onClick={() => this.handleBuyNow(true)}>
-                  Buy Now - ${this.props.course.team_price}
-                </BuyButton>
-              </BuyFooter>
-            </InlineBlock>
-          </BuyContainer>
-        </Packages>
+        <Packages onBuyNow={this.handleBuyNow} course={this.props.course} />
 
         <div>
           <h2>What is react native</h2>

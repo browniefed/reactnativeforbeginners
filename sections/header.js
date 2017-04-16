@@ -14,7 +14,7 @@ const TopHeader = () => {
       <TextLine>
         Beginners
       </TextLine>
-      <SubText>Get the knowledge to build the app you've always dreamed of.</SubText>
+      <SubText>Get the knowledge to build the app you've always dreamed of</SubText>
       <Android />
       <ReactNative />
       <Apple />

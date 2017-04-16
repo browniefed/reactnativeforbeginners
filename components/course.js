@@ -5,8 +5,7 @@ import { Flex, Column } from "glamorous-jsxstyle";
 
 export const CourseSection = glamorous.div({
   margin: "0",
-  backgroundImage: "url(/static/gradient-squares.png)",
-  backgroundColor: "#05A5D1",
+  backgroundImage: "url(/static/gradient-squares.png), linear-gradient(24deg, #05A5D1 0%, #62d8af 100%)",
   backgroundRepeat: "repeat",
   padding: "30px 0",
   color: "#FFF",

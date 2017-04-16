@@ -18,7 +18,7 @@ export const TextLine = ({ children }) => (
 const LandingHeader = glamorous.div({
   textAlign: "center",
   backgroundColor: "#FFC600",
-  padding: "75px 0 150px 0",
+  padding: "75px 0",
   backgroundImage: "url(/static/pattern_cubes.png)",
   backgroundRepeat: "repeat",
 });

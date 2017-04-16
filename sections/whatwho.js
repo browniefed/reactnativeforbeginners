@@ -1,10 +1,16 @@
 import React from "react";
-import { SpacedRounded, FlexReverse } from "../components/sections";
+import { WhiteRounded, FlexReverse } from "../components/sections";
 import glamorous from "glamorous";
 import { InlineBlock, Flex, Column } from "glamorous-jsxstyle";
 
-const Spacer = glamorous(SpacedRounded)({
+const Spacer = glamorous(WhiteRounded)({
   margin: "30px 15px",
+  width: "50%",
+  display: "flex",
+  flex: "1 0 auto",
+  flexDirection: "column",
+  justifyContent: "space-between",
+  padding: "8px",
   "@media (max-width: 768px)": {
     width: "auto",
     margin: "10px 5px",
@@ -19,35 +25,90 @@ const Wrapper = glamorous(FlexReverse)({
   boxShadow: "inset 0 -15px 0 -10px rgba(38,38,38,0.1), inset 0 15px 0 -10px rgba(38,38,38,0.1)",
 });
 
+const InnerWrap = glamorous.div({
+  margin: "30px auto",
+  maxWidth: "1280px",
+  width: "100%",
+  "@media (max-width: 768px)": {
+    width: "auto",
+    margin: "30px 5px",
+  },
+});
+
+const Title = glamorous.h2({
+  color: "#333",
+  textAlign: "center",
+  margin: "15px 0px",
+  paddingBottom: "15px",
+  borderBottom: "1px solid #05A5D1",
+});
+
+const Content = glamorous.div({
+  padding: "15px",
+});
+
+const Item = glamorous.li({
+  color: "#333",
+  fontSize: "1.2rem",
+});
+
+const Text = glamorous.p({
+  color: "#333",
+  fontSize: "1.2rem",
+});
+
+const Footer = glamorous.div({
+  textAlign: "center",
+  paddingTop: "8px",
+  borderTop: "1px solid #05A5D1",
+});
+
 const WhatWhoSection = () => {
   return (
     <Wrapper>
-      <Spacer>
-        <h4>What You'll Be An Expert In</h4>
-        <ul>
-          <li>How to build a complete App in React Native</li>
-          <li>Understand how to use native components</li>
-          <li>Building application navigation flow with react-navigation</li>
-          <li>Working with AsyncStorage to persist data across application loads</li>
-          <li>Learn latest ES6 and beyond features</li>
-          <li>Basic and advanced animations to improve UX</li>
-          <li>...the list goes on. Check the full video list below</li>
-        </ul>
-      </Spacer>
-      <Spacer>
-        <h4>Who Should Get This Course</h4>
-        <p>
-          Anyone looking to expand on their React skills and take them mobile. If you don't know React already then don't worry, we'll cover all the basics.
-        </p>
-        <ul>
-          <li>React developers currently using Cordova</li>
-          <li>Developers or companies looking to launch apps across both platforms</li>
-          <li>Anyone looking to grow their JavaScript skills</li>
-        </ul>
+      <InnerWrap>
+        <FlexReverse>
+          <Spacer>
+            <Title>What You'll Be An Expert In</Title>
+            <Content>
+              <Text>
+                This course is meant to help you understand how to get started with the basics React Native all the way through building a complex application with animations.
+              </Text>
+              <Text>
+                By the end you'll have everything you need to start building your own application.
+              </Text>
 
-        <h3>Still unsure?</h3>
-        <h3>We provide a 100% money back guarantee!</h3>
-      </Spacer>
+              <ul>
+                <Item>How to build a complete App in React Native</Item>
+                <Item>Understand how to use native components</Item>
+                <Item>Building application navigation flow with react-navigation</Item>
+                <Item>Working with AsyncStorage to persist data across application loads</Item>
+                <Item>Learn latest ES6 and beyond features</Item>
+                <Item>Basic and advanced animations to improve UX</Item>
+                <Item>...the list goes on. Check the full video list below</Item>
+              </ul>
+            </Content>
+          </Spacer>
+          <Spacer>
+            <Title>Who Should Get This Course</Title>
+            <Content>
+              <Text>
+                Anyone looking to expand on their React skills and take them mobile. If you don't know React already then don't worry, we'll cover all the basics.
+              </Text>
+              <ul>
+                <Item>React developers currently using Cordova</Item>
+                <Item>Developers or companies looking to launch apps across both platforms</Item>
+                <Item>Anyone looking to grow their JavaScript skills</Item>
+                <Item>Someone looking to convert their web app to React Native</Item>
+              </ul>
+            </Content>
+            <Footer>
+              <Text>Still unsure? </Text>
+              <Text>We provide a <strong>100% money back guarantee!</strong></Text>
+            </Footer>
+          </Spacer>
+        </FlexReverse>
+      </InnerWrap>
     </Wrapper>
   );
 };
