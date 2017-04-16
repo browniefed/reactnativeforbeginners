@@ -6,7 +6,7 @@ import { charge, loadCourse } from "../api";
 
 import Header, { TextLine, SubText, SmallTextHeader } from "../components/header";
 import { RNVersion, SmallText, Text, Android, Apple, ReactNative } from "../components/misc";
-import { Packages, CourseSection, WhiteRounded } from "../components/sections";
+import { Packages, CourseSection, SpacedRounded } from "../components/sections";
 import { Courses, CourseHeader } from "../components/course";
 import { Follow } from "react-twitter-widgets";
 import { InlineBlock, Flex } from "glamorous-jsxstyle";
@@ -18,6 +18,8 @@ import {
   BuyButton,
   BuyContent,
 } from "../components/purchase";
+
+import TopHeader from "../sections/header";
 
 const priceToNum = price => parseFloat(price, 10) * 100;
 
@@ -91,21 +93,9 @@ class Index extends Component {
   render() {
     return (
       <Page>
-        <Header>
-          <TextLine>
-            React Native
-          </TextLine>
-          <SmallTextHeader>
-            for
-          </SmallTextHeader>
-          <TextLine>
-            Beginners
-          </TextLine>
-          <SubText>Get the knowledge to build the app you've always dreamed of.</SubText>
-          <ReactNative /> <Android /> <Apple />
-        </Header>
+        <TopHeader />
 
-        <WhiteRounded>
+        <SpacedRounded>
           <Flex>
             <img src="/static/me.jpg" />
             <div>
@@ -124,9 +114,9 @@ class Index extends Component {
           <InlineBlock>
             <Follow username="codedailyio" />
           </InlineBlock>
-        </WhiteRounded>
+        </SpacedRounded>
 
-        <WhiteRounded>
+        <SpacedRounded>
           <div>
             Look at this gif here. It's so great
           </div>
@@ -144,11 +134,11 @@ class Index extends Component {
               If you already ready to start building "get the course now".
             </p>
           </div>
-        </WhiteRounded>
+        </SpacedRounded>
 
         <div>
 
-          <WhiteRounded>
+          <SpacedRounded>
             <h4>What You'll Be An Expert In</h4>
             <ul>
               <li>How to build a complete App in React Native</li>
@@ -159,8 +149,8 @@ class Index extends Component {
               <li>Basic and advanced animations to improve UX</li>
               <li>...the list goes on. Check the full video list below</li>
             </ul>
-          </WhiteRounded>
-          <WhiteRounded>
+          </SpacedRounded>
+          <SpacedRounded>
             <h4>Who Should Get This Course</h4>
             <p>
               Anyone looking to expand on their React skills and take them mobile. If you don't know React already then don't worry, we'll cover all the basics.
@@ -173,7 +163,7 @@ class Index extends Component {
 
             <h3>Still unsure?</h3>
             <h3>We provide a 100% money back guarantee!</h3>
-          </WhiteRounded>
+          </SpacedRounded>
 
         </div>
 
