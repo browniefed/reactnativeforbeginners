@@ -22,6 +22,7 @@ const Wrapper = glamorous(FlexReverse)({
   backgroundColor: "#FFC600",
   backgroundImage: "url(/static/fake-luxury.png)",
   backgroundRepeat: "repeat",
+  boxShadow: "inset 0 -15px 0 -10px rgba(38,38,38,0.1), inset 0 15px 0 -10px rgba(38,38,38,0.1)",
 });
 
 const InnerWrap = glamorous.div({
@@ -50,6 +51,15 @@ const Item = glamorous.li({
   color: "#333",
   fontSize: "1.2rem",
   lineHeight: "1.6rem",
+  listStyle: "none",
+  position: "relative",
+  "&::before": {
+    content: `'―'`,
+    display: 'block',
+    position: 'absolute',
+    left: '-25px',
+    color: "#05A5D1",
+  },
 });
 
 const Text = glamorous.p({

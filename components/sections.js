@@ -4,9 +4,9 @@ import { Flex } from "glamorous-jsxstyle";
 
 export const WhiteRounded = glamorous.div({
   padding: "20px",
-  backgroundColor: "rgba(255,255,255,.95)",
+  backgroundColor: "#FFF",
   borderRadius: "2px",
-  border: "5px solid rgba(0,0,0,.1)",
+  boxShadow: "0 0 0 5px rgba(38,38,38,0.1)",
 });
 
 export const SpacedRounded = glamorous(WhiteRounded)({

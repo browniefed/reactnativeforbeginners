@@ -20,7 +20,7 @@ const InnerWrap = glamorous.div({
   },
 });
 
-const BuyContainer = glamorous.div({
+const BuyContainer = glamorous(Column)({
   backgroundColor: "#FFF",
   boxShadow: "0px 0px 1px rgba(0,0,0,.1)",
   margin: "30px 15px",
@@ -31,7 +31,7 @@ const BuyContainer = glamorous.div({
 
 const BuyWrap = glamorous(Column)({
   flex: "1 0 auto",
-  justifyContent: "space-between",
+  justifyContent: "flex-start",
 });
 
 const BuyTitle = glamorous.h1({
@@ -39,11 +39,14 @@ const BuyTitle = glamorous.h1({
   margin: "15px 0",
   paddingBottom: "15px",
   borderBottom: "1px solid #05A5D1",
+  fontSize: "2.5rem",
 });
 
 const BuyFooter = glamorous.div({});
 
-const BuyContent = glamorous.div({});
+const BuyContent = glamorous.div({
+  minHeight: "250px",
+});
 
 const Item = glamorous.div({
   padding: "5px 15px",
