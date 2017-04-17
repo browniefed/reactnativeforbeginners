@@ -4,7 +4,6 @@ import ReactGA from "react-ga";
 import { getParsedToken } from "../token";
 import { charge, loadCourse } from "../api";
 
-import { RNVersion, SmallText, Text, Android, Apple, ReactNative } from "../components/misc";
 import { CourseSection, SpacedRounded, RelativeWrap, MtnBg } from "../components/sections";
 import { Follow } from "react-twitter-widgets";
 import { InlineBlock, Flex, Column } from "glamorous-jsxstyle";
@@ -15,6 +14,7 @@ import MeSection from "../sections/me";
 import Course from "../sections/course";
 import WhatWho from "../sections/whatwho";
 import Packages from "../sections/packages";
+import FAQSection from "../sections/faq";
 
 const priceToNum = price => parseFloat(price, 10) * 100;
 
@@ -81,29 +81,13 @@ class Index extends Component {
       <Page>
         <TopHeader />
         <RelativeWrap>
-          <MeSection />
           <Overview />
+          <MeSection />
         </RelativeWrap>
         <WhatWho />
         <Course />
-
         <Packages onBuyNow={this.handleBuyNow} course={this.props.course} />
-
-        <div>
-          <h2>What is react native</h2>
-          <div>
-            <h4>React Native is used by companies big and small including: </h4>
-            Facebook
-            AirBnB
-            Instagram
-            Tesla
-            Walmart
-            MLS
-          </div>
-          <div>
-            FAQ
-          </div>
-        </div>
+        <FAQSection />
       </Page>
     );
   }

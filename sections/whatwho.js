@@ -22,7 +22,6 @@ const Wrapper = glamorous(FlexReverse)({
   backgroundColor: "#FFC600",
   backgroundImage: "url(/static/fake-luxury.png)",
   backgroundRepeat: "repeat",
-  boxShadow: "inset 0 -15px 0 -10px rgba(38,38,38,0.1), inset 0 15px 0 -10px rgba(38,38,38,0.1)",
 });
 
 const InnerWrap = glamorous.div({
@@ -50,18 +49,18 @@ const Content = glamorous.div({
 const Item = glamorous.li({
   color: "#333",
   fontSize: "1.2rem",
-  lineHeight: "1.6rem"
+  lineHeight: "1.6rem",
 });
 
 const Text = glamorous.p({
   color: "#333",
   fontSize: "1.2rem",
-  lineHeight: "1.6rem"
+  lineHeight: "1.6rem",
 });
 
 const TopText = glamorous(Text)({
   marginTop: 0,
-})
+});
 
 const Footer = glamorous.div({
   textAlign: "center",

@@ -1,13 +1,6 @@
 import React from "react";
 import glamorous from "glamorous";
-
 import { Flex } from "glamorous-jsxstyle";
-
-export const Packages = glamorous.div({
-  backgroundColor: "#F5F5F5",
-  padding: "30px 0",
-  boxShadow: "inset 0 -15px 0 -10px rgba(38,38,38,0.1), inset 0 15px 0 -10px rgba(38,38,38,0.1)",
-});
 
 export const WhiteRounded = glamorous.div({
   padding: "20px",
@@ -31,6 +24,7 @@ export const RelativeWrap = glamorous.div({
   backgroundImage: "url(/static/bg.jpg)",
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
+  boxShadow: "inset 0 -15px 0 -10px rgba(38,38,38,0.1), inset 0 15px 0 -10px rgba(38,38,38,0.1)",
 });
 
 export const FlexReverse = glamorous(Flex)({

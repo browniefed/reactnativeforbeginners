@@ -38,9 +38,10 @@ const FollowWrap = glamorous(InlineBlock)({
   marginLeft: "15px",
   "@media (max-width: 768px)": {
     marginLeft: 0,
-    marginTop: "15px"
-  }
-})
+    marginTop: "15px",
+  },
+});
+
 const MeSection = () => {
   return (
     <SpacedRounded>

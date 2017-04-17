@@ -19,7 +19,7 @@ export const SmallText = glamorous.div({
 export const Text = glamorous.p({
   color: "#333",
   fontSize: "1.1rem",
-  lineHeight: "1.3rem",
+  lineHeight: "1.6rem",
 })
 
 const PlatformImage = glamorous.img({
